@@ -12,8 +12,6 @@ trait CallsInteractions
      */
     public static function interact($interaction, array $parameters = [])
     {
-        $class = class_basename($interaction);
-        
-        return call_user_func_array([app($class), 'run'], $parameters);
+        return call_user_func_array([app($interaction), 'run'], $parameters);
     }
 }
