@@ -1,0 +1,30 @@
+<?php
+
+namespace DummyNamespace;
+
+use Lumby\Interactions\Interaction;
+
+class DummyClass extends Interaction
+{
+    /**
+     * Rules to validate the interaction.
+     *
+     * @return array
+     */
+    protected function rules()
+    {
+        return [
+
+        ];
+    }
+
+    /**
+     * Handle the interaction.
+     *
+     * @return mixed
+     */
+    public function execute()
+    {
+        //
+    }
+}
