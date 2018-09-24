@@ -15,7 +15,7 @@ trait CallsInteractions
         return app($interaction)->run($parameters);
     }
 
-    public static function execute($interaction, array $parameters = [])
+    public static function interact($interaction, array $parameters = [])
     {
         return app($interaction, ['parameters' => $parameters])->execute();
     }
