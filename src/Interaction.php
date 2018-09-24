@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Validator;
 
 abstract class Interaction
 {
+    use CallsInteractions;
+
     /**
      * Validator object.
      */
