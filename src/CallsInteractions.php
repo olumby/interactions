@@ -9,14 +9,15 @@ trait CallsInteractions
      * 
      * @param  string $interaction
      * @param  array  $parameters
+     * @param  array  $arguments
      */
-    public static function interaction($interaction, array $parameters = [])
+    public static function interaction($interaction, array $data = [], array $arguments = [])
     {
-        return app($interaction)->run($parameters);
+        return app($interaction, ['data' => $data, 'arguments' => $arguments])->run();
     }
 
-    public static function interact($interaction, array $parameters = [])
+    public static function interact($interaction, array $data = [], array $arguments = [])
     {
-        return app($interaction, ['parameters' => $parameters])->execute();
+        return app($interaction, ['data' => $data, 'arguments' => $arguments])->execute();
     }
 }

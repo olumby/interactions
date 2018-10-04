@@ -14,9 +14,19 @@ abstract class Interaction
     protected $validator;
 
     /**
-     * Parameters for the interaction.
+     * Data for the interaction.
      */
-    protected $parameters;
+    protected $data;
+
+    /**
+     * Validated data for the interaction.
+     */
+    protected $validated;
+
+    /**
+     * Additional arguments for the interaction.
+     */
+    protected $arguments;
 
     /**
      * Rules to validate the interaction.
@@ -28,12 +38,10 @@ abstract class Interaction
      * 
      * @param array $parameters
      */
-    public function __construct(array $parameters = [])
+    public function __construct(array $data = [], array $arguments = [])
     {
-        $rules = method_exists($this, 'rules') ? $this->rules() : $this->rules;
-
-        $this->parameters = $parameters;
-        $this->validator = Validator::make($this->parameters, $rules);
+        $this->data = $data;
+        $this->arguments = $arguments;
     }
 
     /**
@@ -41,12 +49,15 @@ abstract class Interaction
      *
      * @param  array  $parameters
      */
-    public static function run(array $parameters = [])
+    public function run()
     {
-        $interactor = new static($parameters);
+        $this->validator = Validator::make(
+            $this->data,
+            method_exists($this, 'rules') ? $this->rules() : $this->rules
+        );
 
-        $interactor->validator->validate();
+        $this->validated = $this->validator->validate();
 
-        return $interactor->execute();
+        return $this->execute();
     }
 }
