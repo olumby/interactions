@@ -84,3 +84,39 @@ class MyController extends Controller
 
 ...
 ```
+
+### Rules Method
+
+If the interaction is generated using the `--method` option, the `$rules` property will be replaced with a method, allowing more complicated validation rules.
+
+```php
+namespace App\Interactions;
+
+use Lumby\Interactions\Interaction;
+
+class InteractionName extends Interaction
+{
+    /**
+     * Rules to validate the interaction.
+     *
+     * @return array
+     */
+    protected function rules()
+    {
+        return [
+            
+        ];
+    }
+
+    /**
+     * Handle the interaction.
+     *
+     * @return mixed
+     */
+    public function execute()
+    {
+        //
+    }
+}
+
+```
