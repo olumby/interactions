@@ -64,7 +64,7 @@ class InteractionMakeCommand extends GeneratorCommand
     protected function getOptions()
     {
         return [
-            ['method', 'm', InputOption::VALUE_NONE, 'Generate an interaction a rules method instead of property.'],
+            ['method', 'm', InputOption::VALUE_NONE, 'Generate interaction with rules method instead of property.'],
         ];
     }
 }
