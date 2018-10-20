@@ -33,7 +33,7 @@ Using the option `--method` will create an interaction class with a rules method
 This will create an empty interaction that extends the base interaction class.
 
 ```php
-namespace DummyNamespace;
+namespace App\Interactions;
 
 use Lumby\Interactions\Interaction;
 
@@ -83,4 +83,40 @@ class MyController extends Controller
 }
 
 ...
+```
+
+### Rules Method
+
+If the interaction is generated using the `--method` option, the `$rules` property will be replaced with a method, allowing more complicated validation rules.
+
+```php
+namespace App\Interactions;
+
+use Lumby\Interactions\Interaction;
+
+class InteractionName extends Interaction
+{
+    /**
+     * Rules to validate the interaction.
+     *
+     * @return array
+     */
+    protected function rules()
+    {
+        return [
+            
+        ];
+    }
+
+    /**
+     * Handle the interaction.
+     *
+     * @return mixed
+     */
+    public function execute()
+    {
+        //
+    }
+}
+
 ```

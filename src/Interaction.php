@@ -36,7 +36,8 @@ abstract class Interaction
     /**
      * Set up the interaction
      * 
-     * @param array $parameters
+     * @param array $data
+     * @param array $arguments
      */
     public function __construct(array $data = [], array $arguments = [])
     {
@@ -46,8 +47,6 @@ abstract class Interaction
 
     /**
      * Run the interaction.
-     *
-     * @param  array  $parameters
      */
     public function run()
     {
