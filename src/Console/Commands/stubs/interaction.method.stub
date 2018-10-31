@@ -19,7 +19,7 @@ class DummyClass extends Interaction
     }
 
     /**
-     * Handle the interaction.
+     * Execute the interaction.
      *
      * @return mixed
      */
