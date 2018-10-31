@@ -12,7 +12,7 @@ class DummyClass extends Interaction
     protected $rules = [];
 
     /**
-     * Handle the interaction.
+     * Execute the interaction.
      *
      * @return mixed
      */
